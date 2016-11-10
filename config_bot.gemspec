@@ -15,6 +15,9 @@ Gem::Specification.new do |spec|
     spec.homepage      = "https://github.com/WasiqB/config_bot"
     spec.license       = "MIT"
 
+    spec.post_install_message = "Thanks for installing!"
+    spec.metadata      = { "issue_tracker" => "https://github.com/WasiqB/config_bot/issues" }
+
     spec.files         = `git ls-files -z`.split("\x0")
     spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
     spec.bindir        = 'exe'
