@@ -1,5 +1,5 @@
 module ConfigBot
-    class Bot
+    class ConfigBot
         attr_reader :name, :questions
 
         def initialize name = "config-bot"
