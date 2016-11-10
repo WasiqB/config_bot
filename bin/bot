@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'config_bot'
-
-ConfigBot::Client.start
