@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'config_bot'
+require "config_bot"
 
 ConfigBot::Bot.start( ARGV )
