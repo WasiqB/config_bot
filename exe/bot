@@ -2,4 +2,4 @@
 
 require 'config_bot'
 
-ConfigBot::Client.start( ARGV )
+ConfigBot::Bot.start( ARGV )

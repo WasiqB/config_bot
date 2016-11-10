@@ -2,7 +2,7 @@ require 'thor'
 require 'yaml'
 
 module ConfigBot
-    class Client < Thor
+    class Bot < Thor
         desc "config [PATH]", "Description"
         def config path
             if File.exist? path
