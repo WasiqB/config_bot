@@ -1,0 +1,9 @@
+---
+name: my_bot
+prefix: "[?] "
+color: :cyan
+queries:
+- question:
+    id: test.id
+    type: 1
+    query: Whats ur name?

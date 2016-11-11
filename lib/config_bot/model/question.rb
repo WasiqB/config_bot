@@ -1,5 +1,5 @@
 class Question
-  attr_accessor :name, :id, :type, :query, :default, :color, \
+  attr_accessor :name, :id, :type, :query, :default, \
     :positive, :negative, :convert, :results, :choices
 
   def initialize name = "question"

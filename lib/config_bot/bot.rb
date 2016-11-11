@@ -21,8 +21,9 @@ module ConfigBot
     def new
       config_name = "bot_questionare"
       config_name = options[:name] if options[:name]
-      say "Welcome!"
       say <<-SAY
+Welcome!
+
 This bot will help you in creating the questionare file which the bot will use when you create
 the config file for your application.
 Follow the questionare which will guide you in the process.
@@ -44,17 +45,8 @@ SAY
     desc 'version', 'Display version'
     map %w[-v --version] => :version
     def version
-      say "config_bot #{VERSION}"
+      say "config_bot: #{VERSION}"
       say "Created By Wasiq Bhamla."
     end
   end
-
-  # if File.exist? path
-  #   yaml = YAML.load_file path
-  #   my_bot = ConfigBot.new yaml["name"]
-  #   my_bot.load_questions yaml
-  #   puts my_bot.to_hash.inspect
-  # else
-  #   error "File not found!"
-  # end
 end
