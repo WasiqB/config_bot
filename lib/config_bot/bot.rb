@@ -12,7 +12,15 @@ module ConfigBot
     method_option :path, :aliases => "-p", :desc => "Path for the config file."
     method_option :config, :aliases => "-c", :desc => "Path for the questionare file."
     def generate name
+      path = Dir.pwd
+      path = options[:path] if options[:path]
 
+      config_name = "#{Dir.pwd}/bot_questionare.yaml"
+      config_name = options[:config] if options[:config]
+
+      gen = Generate.new path, name
+      gen.config_file = config_name
+      gen.generate
     end
 
     desc "new", "Creates new questionare file for our bot."
@@ -37,9 +45,14 @@ SAY
       say "Generating new bot questionare file with name [#{config_name}]...", :cyan
       config_path = Dir.pwd
       config_path = options[:path] if options[:path]
-      g = New.new config_name, config_path
-      g.create
-      say "Bot questionare creation completed successfull...", :bold
+      begin
+        g = New.new config_name, config_path
+        g.create
+      rescue Exception => e
+        error e.message
+        error e.backtrace.inspect
+      end
+      say "Bot questionare creation completed successfull and saved @ [#{config_path}]...", :bold
     end
 
     desc 'version', 'Display version'

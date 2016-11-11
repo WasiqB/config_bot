@@ -1,9 +1,10 @@
 ---
-name: my_bot
+name: Test Bot
 prefix: "[?] "
 color: :cyan
 queries:
 - question:
     id: test.id
     type: 1
-    query: Whats ur name?
+    query: '1'
+    convert: 10
