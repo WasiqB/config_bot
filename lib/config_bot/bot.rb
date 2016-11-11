@@ -1,7 +1,7 @@
 require 'thor'
 require 'yaml'
-require "cli/generate"
-require "cli/new"
+require_relative 'cli/generate'
+require_relative "cli/new"
 
 module ConfigBot
   class Bot < Thor
@@ -35,7 +35,7 @@ bot generate <config file name>
 SAY
       say "Generating new bot questionare file with name [#{config_name}]...", :cyan
       config_path = Dir.pwd
-      config_path = options[:config] if options[:config]
+      config_path = options[:path] if options[:path]
       g = New.new config_name, config_path
       g.create
       say "Bot questionare creation completed successfull...", :bold
@@ -45,6 +45,7 @@ SAY
     map %w[-v --version] => :version
     def version
       say "config_bot #{VERSION}"
+      say "Created By Wasiq Bhamla."
     end
   end
 

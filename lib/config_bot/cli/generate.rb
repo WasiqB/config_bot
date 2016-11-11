@@ -1,8 +1,8 @@
 require "tty-prompt"
-require "../model/bot"
-require "../model/choice"
-require "../model/queston"
-require "../model/result"
+require_relative "../model/bot"
+require_relative "../model/choice"
+require_relative "../model/question"
+require_relative "../model/result"
 
 module ConfigBot
     class Generate

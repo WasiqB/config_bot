@@ -1,5 +1,5 @@
 class Question
-  attr_accessor :name, :id, :type, :query, :default, :color, :suffix, \
+  attr_accessor :name, :id, :type, :query, :default, :color, \
     :positive, :negative, :convert, :results, :choices
 
   def initialize name = "question"
@@ -17,14 +17,19 @@ class Question
   end
 
   def to_hash
-    res = results.map { |r| r.to_hash }
-    options = choices.map { |c| c.to_hash }
-    { name=> {
-        "id"=> id, "type"=> type, "query"=> query, "default"=> default,
-        "color"=> color, "suffix"=> suffix, "positive"=> positive,
-        "negative"=> negative, "convert"=> convert, "choices"=> options,
-        "results"=> res
-      }
-    }
+    fields = %w{id type query default color positive negative convert choices results}
+    question = {}
+    fields.each do |field|
+      val = instance_variable_get "@#{field}"
+      if val
+        if field == "choices" || field == "results"
+          arr = val.map { |c| c.to_hash }
+          question[field] = arr if arr.length > 0
+        else
+          question[field] = val
+        end
+      end
+    end
+    { name=> question } if question.keys.length > 0
   end
 end

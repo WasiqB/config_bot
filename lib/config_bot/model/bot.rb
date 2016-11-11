@@ -2,10 +2,10 @@ module ConfigBot
   class ConfigBot
     attr_reader :name, :questions, :prefix
 
-    def initialize name = "config-bot", prefix
+    def initialize name = "config-bot", prefix = "[?] "
       @name = name
-      @questions = []
       @prefix = prefix
+      @questions = []
     end
 
     def add_question question

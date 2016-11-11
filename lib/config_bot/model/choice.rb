@@ -1,7 +1,7 @@
 class Choice
   attr_reader :item, :id, :name
 
-  def initialize name = "choice", item, id
+  def initialize item, id, name = "choice"
     @name = name
     @item = item
     @id = id
