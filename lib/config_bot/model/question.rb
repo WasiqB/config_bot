@@ -1,6 +1,6 @@
 class Question
-  attr_accessor :name, :id, :type, :query, :default, \
-    :positive, :negative, :convert, :results, :choices
+  attr_accessor :name, :id, :type, :query, :default, :mask, :positive, :negative, \
+    :convert, :required, :results, :choices, :help_msg, :min, :max, :step
 
   def initialize name = "question"
     @name = name
@@ -17,7 +17,7 @@ class Question
   end
 
   def to_hash
-    fields = %w{id type query default color positive negative convert choices results}
+    fields = %w{id type query default mask positive negative convert choices results required help_msg min max step}
     question = {}
     fields.each do |field|
       val = instance_variable_get "@#{field}"
