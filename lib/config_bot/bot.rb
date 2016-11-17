@@ -40,16 +40,16 @@ module ConfigBot
       config_name = "bot_questionare"
       config_name = options[:name] if options[:name]
       say <<-SAY
-      Welcome!
+Welcome!
 
-      This bot will help you in creating the questionare file which the bot will use when you create
-      the config file for your application.
-        Follow the questionare which will guide you in the process.
+This bot will help you in creating the questionare file which the bot will use when you create
+the config file for your application.
+  Follow the questionare which will guide you in the process.
 
-        After your custom questionare is completed, to generate the config file using this questionare,
-        use this:
+  After your custom questionare is completed, to generate the config file using this questionare,
+  use this:
 
-        bot generate <config file name>
+  bot generate <config file name>
 
       SAY
       say "Generating new bot questionare file with name [#{config_name}.yaml]...", :cyan

@@ -77,7 +77,7 @@ module ConfigBot
           result = Result.new value
           question_count = prompt.ask "#{question_id}.7.1.#{i}.2. How many questions your result have?", \
             required: true, convert: :int
-          question_count.times do |id|
+          (1..question_count).each do |id|
             result.questions.push set_question id, "#{question_id}.7.1.#{id}.2."
           end
           question.add_result result
