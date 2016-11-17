@@ -91,7 +91,7 @@ config file.
           if result.length == 1
             ask_questions result[0].questions, store, "#{index + 1}."
           elsif result.length > 1
-            raise Error, set_color("ERROR: More then 1 matchig result found.", :red)
+            raise Error, "ERROR: More then 1 matchig result found."
           end
         end
       end
@@ -107,7 +107,7 @@ config file.
 
     def check_path
       if !File.exist? config_file
-        raise Error, set_color("ERROR: #{config_file} doesn't exists.", :red)
+        raise IOError, "ERROR: #{config_file} doesn't exists."
       end
     end
 
